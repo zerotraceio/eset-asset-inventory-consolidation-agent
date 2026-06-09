@@ -10,6 +10,7 @@ Transform multiple ESET reports into a unified "Golden Record" per device, elimi
 - **Comprehensive Coverage**: Captures OS version, CPU specs, RAM, Storage, Logged Users, Static Groups, and a consolidated list of Installed Applications.
 - **Interactive Dashboard**: A Streamlit-based UI for effortless file uploads and real-time data preview.
 - **Exportable Reports**: Generate a print-ready table or download a consolidated CSV for use in other management tools.
+- **Prebuilt Report Templates**: Includes a `.dat` export file that can be imported directly into ESET PROTECT to standardize these reports across multiple client environments.
 
 ## 🛠️ Installation & Setup
 
@@ -27,15 +28,20 @@ Transform multiple ESET reports into a unified "Golden Record" per device, elimi
    ```
 3. **Install dependencies**:
    ```bash
-   pip install -r requirements.txt
+ la-pip install -r requirements.txt
    ```
 4. **Launch the dashboard**:
    ```bash
    streamlit run app.py
    ```
 
-## 📊 Supported Reports
-The tool expects the following ESET Protect Cloud exports (Detailed/Per-Device view):
+## 📊 Supported Reports & Templates
+The tool expects the following ESET Protect Cloud exports (Detailed/Per-Device view). To make this easier, we provide a template category file:
+
+**Template File**: `eset-asset-inventory-consolidation.dat`
+Import this file into your ESET PROTECT console to automatically create the "ESET Asset Inventory Consolidation" category and all necessary report templates.
+
+### Required Exports:
 - `Computer Hardware Overview.csv`
 - `Computers with their CPU details.csv`
 - `Computers with their RAM details.csv`
@@ -51,3 +57,4 @@ The tool expects the following ESET Protect Cloud exports (Detailed/Per-Device v
 - `consolidator.py`: Core data processing logic.
 - `requirements.txt`: Python dependencies.
 - `README.md`: Project documentation.
+- `eset-asset-inventory-consolidation.dat`: ESET PROTECT importable template package.
