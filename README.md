@@ -19,29 +19,46 @@ Transform multiple ESET reports into a unified "Golden Record" per device, elimi
 - Virtual Environment (recommended)
 
 ### Setup Steps
-1. **Clone the repository** (or download the folder).
-2. **Create and activate a virtual environment**:
+1. **Clone the repository**
    ```bash
+   git clone https://github.com/zerotraceio/eset-asset-inventory-consolidation-agent.git
+   cd eset-asset-inventory-consolidation-agent
+   ```
+
+2. **Create and activate a virtual environment**
+   ```bash
+   # Linux/macOS
    python3 -m venv .venv
-   source .venv/bin/activate  # Linux/macOS
-   # OR .venv\\Scripts\\activate # Windows
+   source .venv/bin/activate
+
+   # Windows
+   python -m venv .venv
+   .venv\\Scripts\\activate
    ```
-3. **Install dependencies**:
+
+3. **Install dependencies**
    ```bash
- la-pip install -r requirements.txt
+   pip install -r requirements.txt
    ```
-4. **Launch the dashboard**:
+
+4. **Launch the dashboard**
    ```bash
    streamlit run app.py
    ```
 
-## 📊 Supported Reports & Templates
-The tool expects the following ESET Protect Cloud exports (Detailed/Per-Device view). To make this easier, we provide a template category file:
+## 📑 How to Import ESET Report Templates
+To ensure the consolidation agent works perfectly, you must use the correct report formats. We have provided a `.dat` file containing the precisely configured templates.
 
-**Template File**: `eset-asset-inventory-consolidation.dat`
-Import this file into your ESET PROTECT console to automatically create the "ESET Asset Inventory Consolidation" category and all necessary report templates.
+### Steps to import the templates into ESET PROTECT Cloud:
+1. Log into your **ESET PROTECT Cloud** console.
+2. Navigate to **Reports** in the left-hand menu.
+3. Click the **Import** button (located in the top-right toolbar).
+4. Select the file: `eset-asset-inventory-consolidation.dat`.
+5. Once the import is complete, you will find a new category named **"ESET Asset Inventory Consolidation"** in your reports list.
+6. To get the data for this tool, simply run each report within this category and export the results as **CSV**.
 
-### Required Exports:
+## 📊 Supported Reports
+The tool expects the following CSV exports (Detailed/Per-Device view) from the imported category:
 - `Computer Hardware Overview.csv`
 - `Computers with their CPU details.csv`
 - `Computers with their RAM details.csv`
